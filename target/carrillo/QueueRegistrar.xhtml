@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" 
+       template="index.xhtml"
+      >
+
+ <ui:define name="content">
+   
+<div class="panel">
+    <div class="panelheader">
+        <span>Registrar Nuevo cliente</span>
+
+    </div>
+    <div class="panelbody">
+
+        <p:messages id="msg"  autoUpdate="true"/>
+        <h:form style="display: flex; justify-content: center">
+            <p:panelGrid columns="2">
+
+                <p:outputLabel value="Nombre"/>	<p:inputText value="#{BeanQueue.queue.name}"/>
+
+                <p:outputLabel value="Target | IP"/>	<p:inputText value="#{BeanQueue.queue.target}"/>
+
+                <p:outputLabel value="Vel.Subida"/>	<p:inputText value="#{BeanQueue.vsubida}"/>
+                <p:outputLabel value="Vel.Bajada"/>	<p:inputText value="#{BeanQueue.vbajada}"/>
+
+                <p:outputLabel value="Max-Vel.Subida"/>	<p:inputText value="#{BeanQueue.maxvsubida}"/>
+                <p:outputLabel value="Max-Vel.Bajada"/>	<p:inputText value="#{BeanQueue.maxvbajada}"/>
+
+
+
+                <p:outputLabel value="Comentario"/>	<p:inputText value="#{BeanQueue.queue.comment}"/>
+
+                <p:commandButton value="Registrar Cola" actionListener="#{BeanQueue.CrearQueue}" />
+
+            </p:panelGrid>
+        </h:form>
+
+    </div>
+
+</div>
+   
+</ui:define>
+   
+</ui:composition>

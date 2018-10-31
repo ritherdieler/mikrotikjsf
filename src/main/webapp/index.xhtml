@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>JSF 2.2</title>
+	<h:outputStylesheet library="css" name="estilos.css" />
+
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<h:outputScript library="primefaces" name="jquery/jquery.js" />
+
+
+	<h:outputScript library="js" name="scripts.js"/>
+</h:head>
+<h:body>
+	<div class="container">
+
+		<header class="header">
+		<div id="h1">
+			<p:graphicImage id="h1img"	name="img/template/header/Mikrotik_Router.png"/>
+		</div>
+		<div id="h2">Sistema de administracion remota Mikrotik Router OS
+
+		</div>
+
+		<div id="h3">
+				<p:graphicImage id="userlog" name="img/template/header/userlog.png" />
+		</div>
+
+		</header>
+
+		<main> <aside> <h:form>
+
+
+			<ul class="menu">
+				<li>
+					<span id="asidetitle">
+						MENU DE NAVEGACIÓN
+					</span>
+				</li>
+
+				<li>
+					<a href="index.xhtml" id="btninicio" class="menusup">
+					Inicio
+					</a>
+				</li>
+
+				<li>
+						<a href="#" class="menusup" >
+								<span>
+									<i class="large material-icons iconosidebleft">
+									wifi
+									</i>
+									Wi-Fi tickets
+								</span>
+								<i class="large material-icons iconosidebright">expand_more
+								</i>
+						</a>
+						
+						<ul>
+							<li class="acbtn"><a href="TicketRegistrar.xhtml" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Registrar Nuevo</a></li>
+							<li class="acbtn"><a href="ticketsListar.xhtml" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Mostrar Todos</a></li>
+						</ul>
+				</li>
+
+				<li ><a href="#" class="menusup"><span><i class="large material-icons iconosidebleft">laptop_mac</i>Queue(Limitar Veloc.)</span><i class="large material-icons iconosidebright">expand_more</i></a>
+					<ul>
+						<li><a  href="QueueRegistrar.xhtml" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Registrar Nuevo cliente</a></li>
+						<li><a href="QueueListar.xhtml" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Mostrar limites de velocidad</a></li>
+					</ul>
+				</li>
+
+				<li >
+
+					<a href="#" id="li"  class="menusup"><span><i class="large material-icons iconosidebleft">network_check</i>Estado de la red</span><i class="large material-icons iconosidebright">expand_more</i>
+
+				</a>
+					<ul>
+						<li><a href="NetworkMonitor.xhtml" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Monitorear Troncal</a></li>
+						<li><a href="#" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Monitor de puertos</a></li>
+						<li><a href="#" class="menuitem"><i class="large material-icons iconosidebleft">radio_button_unchecked</i>Configurar IP's</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</h:form> </aside> <section> <ui:insert name="content">
+
+				adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+				exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+				esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit
+				anim id est laborum.
+		</ui:insert> </section> </main>
+	</div>
+
+
+</h:body>
+</html>

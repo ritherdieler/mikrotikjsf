@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" template="index.xhtml">
+
+	<ui:define name="content">
+
+
+		<div class="panel">
+			<div class="panelheader">
+				<span>Limites de velocidad - Clientes</span>
+				<button class="btn" onclick="PF('dlgRegistrar').show();">Registrar</button>
+			</div>
+			<div class="panelbody">
+				<h:form >
+					<p:messages id="mensajes" autoUpdate="true" />
+					<p:commandButton value="Cargar Queues" actionListener="#{BeanQueue.CargarQueues()}" ajax="false"/>
+					<p:dataTable paginator="true" rows="10" value="#{BeanQueue.queues}" var="q">
+
+						<p:column headerText="NOMBRE" filterBy="#{q.name}" sortBy="#{q.name}">
+							<p:outputLabel value="#{q.name}"/>
+						</p:column>
+
+						<p:column headerText="TARGET">
+							<p:outputLabel value="#{q.target}"/>
+						</p:column>
+
+						<p:column headerText="Limite Subida/Bajada">
+							<p:outputLabel value="#{q.maxLimitInKbUp}Kbps/#{q.maxLimitInKbDown}Kbps"/>
+						</p:column>
+
+						<p:column headerText="ACCION">
+							<p:panelGrid columns="2">
+								<p:commandButton value="Cortar" actionListener="#{BeanQueue.CortarServicio(q)}"/>
+								<p:commandButton value="Editar" actionListener="#{BeanQueue.selectedQueue(q)}"/>
+							</p:panelGrid>
+						</p:column>
+
+
+
+					</p:dataTable>
+
+
+
+
+
+				</h:form >
+			</div>
+		</div>
+
+				
+				<h:form id="imgForm">
+				<p:dialog modal="true" widgetVar="dlg" id="imgDlg" resizable="f" header="editar">
+						
+						<p:panel header="Actualizar Cola">
+							<p:panelGrid columns="2" >
+							
+							
+								<p:outputLabel value="Nombre" />
+								<p:inputText  value="#{BeanQueue.queue.name}"/>
+
+								<p:outputLabel value="Vel.Subida Kbps" />
+																<p:inputText value="#{BeanQueue.vsubida}"/>
+
+	<p:outputLabel value="Vel.Bajada Kbps" />
+								<p:inputText value="#{BeanQueue.vbajada}"/>
+								
+								<p:outputLabel value="Max-Vel.Subida Kbps" />
+								<p:inputText value="#{BeanQueue.maxvsubida}"/>
+								
+								<p:outputLabel value="Max-Vel.Bajada Kbps" />
+								<p:inputText value="#{BeanQueue.maxvbajada}"/>
+
+
+								
+							
+								<p:outputLabel value="Target"  />
+								<p:inputText value="#{BeanQueue.queue.target}" />
+								
+								<p:commandButton value="Guardar Cambios" actionListener="#{BeanQueue.editarQueue()}"  oncomplete="PF('dlg').hide();"/>
+								<p:commandButton value="Cancelar" onclick="PF('dlg').hide()"/>
+								
+							</p:panelGrid>
+						</p:panel>
+
+						
+					</p:dialog>
+				</h:form>
+				
+
+
+
+
+
+
+		<p:dialog widgetVar="dlgRegistrar" id="dlgrReg" modal="true" showEffect="Slide" >
+
+			<div class="panel">
+				<div class="panelheader">
+					<span>Registrar Nuevo cliente</span>
+
+				</div>
+				<div class="panelbody">
+
+					<h:form style="display: flex; justify-content: center">
+						<p:panelGrid columns="2">
+
+							<p:outputLabel value="Nombre"/>	<p:inputText value="#{BeanQueue.queue.name}" />
+
+							<p:outputLabel value="Target | IP"/>	<p:inputText value="#{BeanQueue.queue.target}"/>
+
+							<p:outputLabel value="Vel.Subida"/>	<p:inputText value="#{BeanQueue.vsubida}"/>
+							<p:outputLabel value="Vel.Bajada"/>	<p:inputText value="#{BeanQueue.vbajada}"/>
+
+							<p:outputLabel value="Max-Vel.Subida"/>	<p:inputText value="#{BeanQueue.maxvsubida}"/>
+							<p:outputLabel value="Max-Vel.Bajada"/>	<p:inputText value="#{BeanQueue.maxvbajada}"/>
+
+
+
+							<p:outputLabel value="Comentario"/>	<p:inputText value="#{BeanQueue.queue.comment}"/>
+
+							<p:commandButton value="Registrar Cola" actionListener="#{BeanQueue.CrearQueue}" oncomplete="PF('dlgRegistrar').hide();" update="j_idt16:j_idt18"/>
+
+
+						</p:panelGrid>
+					</h:form>
+
+				</div>
+
+			</div>
+		</p:dialog>
+
+
+
+	</ui:define>
+
+
+
+</ui:composition>

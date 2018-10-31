@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="index.xhtml">
+      
+<ui:define name="content">
+<p:messages id="mensajes" autoUpdate="true" />
+
+
+<h:form>
+<p:panel header="Registrar Nuevo Ticket">
+<center>
+<p:panelGrid columns="2">
+
+<p:outputLabel value="Usuario"/>
+<p:inputText value="#{BeanTest.hotspotUser.name}"/>
+
+<p:outputLabel value="contrasena"/>
+<p:inputText value="#{BeanTest.hotspotUser.password}"/>
+
+<p:outputLabel value="tiempo(en minutos)"/>
+<p:inputNumber value="#{BeanTest.hotspotUser.limitUptime}" decimalPlaces="0"/>
+
+<p:outputLabel value="Tipo de cliente"/>
+<p:selectOneMenu value="#{BeanTest.hotspotUser.profile}">
+<f:selectItem noSelectionOption="true" itemValue="" itemLabel="seleccione un tipo"/>
+<f:selectItems value="#{BeanTest.cargarPefilesHotspot()}"/>
+</p:selectOneMenu>
+
+<p:commandButton value="Registrar" actionListener="#{BeanTest.registrarUsuarioHotspot}"/>
+
+</p:panelGrid>
+
+</center>
+</p:panel>
+</h:form>
+</ui:define>
+
+
+
+</ui:composition>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" template="index.xhtml">
+
+	<ui:define name="content">
+		<p:messages id="mensajes" autoUpdate="true" />
+
+
+
+
+		<center>
+			<p:panel header="Lista de Tickets">
+
+
+
+				<h:form id="imgForm">
+					<p:commandButton actionListener="#{BeanTest.hotspotUsers}" ajax="false" value="Cargar Tickets" style="margin-bottom:8px" />
+					<p:dataTable value="#{BeanTest.hotspotUsers}" var="user"
+						paginator="true" rows="10">
+					
+						<p:column filterBy="#{user.name}" sortBy="#{user.name}" headerText="USUARIO">
+							<p:outputLabel value="#{user.name}" />
+						</p:column>
+
+						<p:column headerText="CONTRASEnA">
+							<p:outputLabel value="#{user.password}" />
+						</p:column>
+
+						<p:column headerText="TIEMPO">
+							<p:outputLabel value="#{user.limitUptime}" />
+						</p:column>
+
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{user.profile}" />
+						</p:column>
+
+						<p:column headerText="ACCION">
+							<p:commandButton value="Editar"
+								actionListener="#{BeanTest.seleccionarUsuario(user)}" />
+
+						</p:column>
+
+					</p:dataTable>
+
+					<p:dialog modal="true" widgetVar="dlg" id="imgDlg" resizable="f" header="editar">
+						<p:panel header="Actualizar usuario">
+							<p:panelGrid columns="2" >
+							<p:outputLabel value="Nombre"/>
+							<p:inputText  value="#{BeanTest.selectedUser.name}"/>
+							<p:outputLabel value="Contrasena" />
+							<p:inputText value="#{BeanTest.selectedUser.password}"/>
+							<p:outputLabel  value="Tiempo Limite(min)"/>
+							<p:inputNumber decimalPlaces="0" value="#{BeanTest.selectedUser.limitUptime}"/>
+							<p:outputLabel value="Perfil"  />
+							<p:inputText value="#{BeanTest.selectedUser.profile}" readonly="true"/>
+							<p:commandButton value="Guardar Cambios" actionListener="#{BeanTest.EditarTicket(BeanTest.selectedUser)}" oncomplete="PF('dlg').hide();"/>
+							<p:commandButton value="Cancelar" onclick="PF('dlg').hide()"/>
+							
+							</p:panelGrid>
+						</p:panel>
+
+						
+					</p:dialog>
+				</h:form>
+			</p:panel>
+
+
+		</center>
+
+	</ui:define>
+
+
+
+</ui:composition>

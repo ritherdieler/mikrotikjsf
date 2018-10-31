@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html" template="index.xhtml">
+
+    <ui:define name="content">
+        <p:messages id="mensajes" autoUpdate="true" />
+
+
+        <div class="panel">
+            <div class="panelheader">Monitoreo  de troncal en tiempo real</div>
+            <div class="panelbody">
+
+                <div class="legend">
+                    <span>Óptimo<div class="rectangle" id="verde"></div>
+                    <span>Malo<div class="rectangle" id="naranja"></div></span>
+                    <span>Pésimo<div class="rectangle" id="rojo"></div></span>
+                </div>
+
+                <div style="width: 100%">
+                    <div style="width:100%">
+                        Troncal
+                    </div>
+                    <div class="infopanelGroup">
+
+
+                        <div class="infopanel">
+
+                            <div class="infopanelTitle">192.168.100.21</div>
+                            <div class="infopanelBody">
+
+                                <span style="width:100%;display: flex;justify-content: center;">50ms</span>
+                                <span style="width: 100%; display: flex; justify-content: center;align-items: center;">
+						<p:graphicImage library="img" name="ic_wifi_tethering_24px.png"/>
+						</span>
+                            </div>
+                            <div class="infopanelFooter">
+                                <p id="avg0">Media:0ms</p>
+                                <p id="max0">Maximo:0ms</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="infopanel">
+
+                            <div class="infopanelTitle">192.168.100.21</div>
+                            <div class="infopanelBody">
+
+                                <span style="width:100%;display: flex;justify-content: center;">50ms</span>
+                                <span style="width: 100%; display: flex; justify-content: center;align-items: center;">
+						<p:graphicImage library="img" name="ic_wifi_tethering_24px.png"/>
+						</span>
+                            </div>
+                            <div class="infopanelFooter">
+                                <p class="avg1">Media:0ms</p>
+                                <p class="max1">Maximo:0ms</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="infopanel">
+
+                            <div class="infopanelTitle">192.168.100.21</div>
+                            <div class="infopanelBody">
+
+                                <span style="width:100%;display: flex;justify-content: center;">50ms</span>
+                                <span style="width: 100%; display: flex; justify-content: center;align-items: center;">
+						<p:graphicImage library="img" name="ic_wifi_tethering_24px.png"/>
+
+						</span>
+                            </div>
+                            <div class="infopanelFooter">
+                                <p class="avg2">Media:0ms</p>
+                                <p class="max2">Maximo:0ms</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="infopanel">
+
+                            <div class="infopanelTitle">192.168.100.21</div>
+                            <div class="infopanelBody">
+
+                                <span style="width:100%;display: flex;justify-content: center;">50ms</span>
+                                <span style="width: 100%; display: flex; justify-content: center;align-items: center;">
+						<p:graphicImage library="img" name="ic_wifi_tethering_24px.png"/>
+
+						</span>
+                            </div>
+                            <div class="infopanelFooter">
+                                <p class="avg3">Media:0ms</p>
+                                <p class="max3">Maximo:0ms</p>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </ui:define>
+
+
+
+</ui:composition>
